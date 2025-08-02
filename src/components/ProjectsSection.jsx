@@ -12,9 +12,9 @@ const projects = [
   },
   {
     id: 2,
-    title: "Gender Age Prediction",
+    title: "Gender and Age Prediction",
     description:
-      "A Model that predicts your age and gender based on your image",
+      "A Model that predicts your age and gender based on your input image",
     image: "/src/assets/age.webp",
     tags: ["Python", "OpenCV", "Deep Learning"],
     demoUrl: "#",
