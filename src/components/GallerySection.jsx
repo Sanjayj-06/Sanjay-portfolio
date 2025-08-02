@@ -6,7 +6,7 @@ const galleryImages = [
     id: 1,
     src: "/gallery/Copy of IMG_2141 (2).JPG",
     alt: "Sanjay Jayakumar - Inauguration Photo",
-    title: "Inauguration Photo"
+    title: "Inauguration Ceremony Photo"
   },
   {
     id: 2,
@@ -29,14 +29,14 @@ const galleryImages = [
   {
     id: 5,
     src: "/gallery/a80bb449-4d99-4d2b-adcc-c73e65779ae6.jpg",
-    alt: "Sanjay Jayakumar - Academic Photo",
-    title: "Academic Photo"
+    alt: "Sanjay Jayakumar - Event Photo",
+    title: "Event Photo"
   },
   {
     id: 6,
     src: "/gallery/1745906377568.jpg",
-    alt: "Sanjay Jayakumar - Professional Moment",
-    title: "Professional Moment"
+    alt: "Sanjay Jayakumar - Event Photo",
+    title: "Event Photo"
   },
   {
     id: 7,
