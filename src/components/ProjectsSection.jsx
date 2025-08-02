@@ -5,7 +5,7 @@ const projects = [
     id: 1,
     title: "AI Spectrum Website",
     description: "Official Website for AI Spectrum , A International Conference conducted by PSG AI Consortium",
-    image: "/src/assets/image.png",
+    image: "/image.png",
     tags: ["React", "TailwindCSS", "Docker"],
     demoUrl: "https://aiconsortium.psgtech.ac.in/aispectrum",
     githubUrl: "https://github.com/Dhanush-2k22/AISpectrum.git",
@@ -15,7 +15,7 @@ const projects = [
     title: "Gender and Age Prediction",
     description:
       "A Model that predicts your age and gender based on your input image",
-    image: "/src/assets/age.webp",
+    image: "/age.webp",
     tags: ["Python", "OpenCV", "Deep Learning"],
     demoUrl: "#",
     githubUrl: "https://github.com/Sanjayj-06/Gender_Age_Prediction.git",
@@ -25,7 +25,7 @@ const projects = [
     title: "ICAMM 26 Website",
     description:
       "Official website for the ICAMM 26 conference, featuring speaker profiles, schedules, and registration.",
-    image: "/src/assets/Color-white.jpg",
+    image: "/Color-white.jpg",
     tags: ["React", "TailwindCSS", "Docker"],
     demoUrl: "#",
     githubUrl: "https://github.com/Sanjayj-06/ICAMM-26.git",

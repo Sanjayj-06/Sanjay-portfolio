@@ -5,7 +5,7 @@ const research = [
     id: 1,
     title: "Neuro Prune: An Adaptive Approach for Efficient Deep Neural Network Optimisation on Edge Devices",
     description: "A pruning algorithm optimizing DNNs for edge devices using reinforcement learning and the Lottery Ticket Hypothesis.",
-    image: "/src/assets/Screenshot 2025-08-01 223249.png",
+    image: "/Screenshot 2025-08-01 223249.png",
     conference: "International Conference on Applied Mathematical Models 2025",
     achievements: [
       "Co-authored 'Neuro Prune', a pruning algorithm optimizing DNNs for edge devices using reinforcement learning and the Lottery Ticket Hypothesis.",

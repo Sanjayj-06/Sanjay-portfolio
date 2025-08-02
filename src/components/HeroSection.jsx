@@ -13,7 +13,7 @@ export const HeroSection = () => {
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
-                  src="src/assets/sanjay photo.jpg"
+                  src="/sanjay photo.jpg"
                   alt="Sanjay Jayakumar"
                   className="w-full h-full object-cover"
                 />
