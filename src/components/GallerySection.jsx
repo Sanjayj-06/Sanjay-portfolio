@@ -5,14 +5,14 @@ const galleryImages = [
   {
     id: 1,
     src: "/gallery/Copy of IMG_2141 (2).JPG",
-    alt: "Sanjay Jayakumar - Portrait",
-    title: "Portrait Photo"
+    alt: "Sanjay Jayakumar - Inauguration Photo",
+    title: "Inauguration Photo"
   },
   {
     id: 2,
     src: "/gallery/15f99ca5-9dfc-45ab-a8b2-cf5c08997850.jpg",
-    alt: "Sanjay Jayakumar - Casual Photo",
-    title: "Casual Photo"
+    alt: "Sanjay Jayakumar - Speech Photo",
+    title: "Speech Photo"
   },
   {
     id: 3,
@@ -23,8 +23,8 @@ const galleryImages = [
   {
     id: 4,
     src: "/gallery/8f27fbf4-bd43-4a97-82b4-b0ed87f159f3.jpg",
-    alt: "Sanjay Jayakumar - Conference Photo",
-    title: "Conference Photo"
+    alt: "Sanjay Jayakumar - Interaction Photo",
+    title: "Interaction Photo"
   },
   {
     id: 5,
@@ -47,14 +47,14 @@ const galleryImages = [
   {
     id: 8,
     src: "/gallery/1745906378282.jpg",
-    alt: "Sanjay Jayakumar - Presentation Photo",
-    title: "Presentation Photo"
+    alt: "Sanjay Jayakumar - Addressing Photo",
+    title: "Addressing Photo"
   },
   {
     id: 9,
     src: "/gallery/1750344692103.jpg",
-    alt: "Sanjay Jayakumar - Recent Photo",
-    title: "Recent Photo"
+    alt: "Sanjay Jayakumar - AIBILL Team Photo",
+    title: "AIBILL Team Photo"
   }
 ];
 
