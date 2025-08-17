@@ -32,7 +32,7 @@ export const HeroSection = () => {
             </h1>
             
             <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium opacity-0 animate-fade-in-delay-2">
-              AI Enthusiast & Full Stack Developer
+              AI Developer & Full Stack Engineer
             </h2>
 
             <div className="flex justify-center gap-6 pt-4 opacity-0 animate-fade-in-delay-3">

@@ -2,7 +2,15 @@ import { Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
-    id: 1,
+    id:1,
+    title: "Joint Secretary",
+    company: "Computer Science Engineers Association (CSEA) 2025 - 2026",
+    location: "PSG College of Technology, Coimbatore",
+    duration: "Aug 2025 - Present",
+    description: []
+  },
+  {
+    id: 2,
     title: "Mobile Application Prototype Developer",
     company: "Inria Grenoble & PSG College of Technology",
     location: "Remote",
@@ -15,7 +23,7 @@ const experiences = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: "Joint Secretary",
     company: "Computer Science Engineers Association (CSEA) 2024 - 2025",
     location: "PSG College of Technology, Coimbatore",

@@ -3,7 +3,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
   {
-    id: 1,
+    id: 10,
     src: "/gallery/Copy of IMG_2141 (2).JPG",
     alt: "Sanjay Jayakumar - Inauguration Photo",
     title: "Inauguration Ceremony Photo"
@@ -55,6 +55,18 @@ const galleryImages = [
     src: "/gallery/1750344692103.jpg",
     alt: "Sanjay Jayakumar - AIBILL Team Photo",
     title: "AIBILL Team Photo"
+  },
+  {
+    id: 10,
+    src: "/gallery/IMG_4283.JPG",
+    alt: "Sanjay Jayakumar - Event Photo 2",
+    title: "Event Photo 2"
+  },
+  {
+    id: 11,
+    src: "/gallery/IMG_4291.JPG",
+    alt: "Sanjay Jayakumar - Event Photo 3",
+    title: "Event Photo 3"
   }
 ];
 
