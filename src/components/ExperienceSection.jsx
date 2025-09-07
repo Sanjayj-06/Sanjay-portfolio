@@ -4,7 +4,7 @@ const experiences = [
   {
     id:1,
     title: "Joint Secretary",
-    company: "Computer Science Engineers Association (CSEA) 2025 - 2026",
+    company: "Computer Science Engineering Association (CSEA) 2025 - 2026",
     location: "PSG College of Technology, Coimbatore",
     duration: "Aug 2025 - Present",
     description: []
@@ -12,7 +12,7 @@ const experiences = [
   {
     id: 2,
     title: "Mobile Application Prototype Developer",
-    company: "Inria Grenoble & PSG College of Technology",
+    company: "AI BILL , Inria Grenoble & PSG College of Technology",
     location: "Remote",
     duration: "Jan 2025 - May 2025",
     description: [
@@ -25,7 +25,7 @@ const experiences = [
   {
     id: 3,
     title: "Joint Secretary",
-    company: "Computer Science Engineers Association (CSEA) 2024 - 2025",
+    company: "Computer Science Engineering Association (CSEA) 2024 - 2025",
     location: "PSG College of Technology, Coimbatore",
     duration: "Aug 2024 - May 2025",
     description: [

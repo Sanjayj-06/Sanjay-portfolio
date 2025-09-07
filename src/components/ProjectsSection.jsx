@@ -3,6 +3,24 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title : "Sudar AI",
+    description: "An AI Powered solution for Multigrade classrooms to assist teachers and students",
+    image: "/sudar.png",
+    tags: ["React", "TailwindCSS", "FastAPI", "Docker", "Postgress"],
+    demoUrl: "",
+    githubUrl: ""
+  },
+  {
+    id: 2,
+    title: "ThunAI",
+    description: "An AI powered Career Assistant Application",
+    image: "/thunai.png",
+    tags: ["React", "TailwindCSS", "FastAPI", "Docker", "Postgress"],
+    demoUrl: "",
+    githubUrl: ""
+  },
+  {
+    id: 3,
     title: "AI Spectrum Website",
     description: "Official Website for AI Spectrum , A International Conference conducted by PSG AI Consortium",
     image: "/image.png",
@@ -11,7 +29,7 @@ const projects = [
     githubUrl: "https://github.com/Dhanush-2k22/AISpectrum.git",
   },
   {
-    id: 2,
+    id: 4,
     title: "Gender and Age Prediction",
     description:
       "A Model that predicts your age and gender based on your input image",
@@ -21,7 +39,7 @@ const projects = [
     githubUrl: "https://github.com/Sanjayj-06/Gender_Age_Prediction.git",
   },
   {
-    id: 3,
+    id: 5,
     title: "ICAMM 26 Website",
     description:
       "Official website for the ICAMM 26 conference, featuring speaker profiles, schedules, and registration.",
