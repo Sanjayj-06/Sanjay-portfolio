@@ -23,7 +23,7 @@ export const AboutSection = () => {
           )}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            About <span className="text-gradient">Me</span>
+            About <span className="text-gradient">Sanjay</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full"></div>
         </div>
@@ -41,11 +41,11 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground text-lg leading-relaxed">
-              A Computer Science and Engineering student at PSG College of Technology with a focus on AI and Machine Learning. I enjoy building full-stack applications, contributing to research, and leading tech initiatives.
+              A Computer Science and Engineering student at PSG College of Technology with a focus on AI and Machine Learning , Deep Learning. He enjoys building full-stack applications, contributing to research, and leading tech initiatives.
             </p>
 
             <p className="text-muted-foreground text-lg leading-relaxed">
-              My work spans including software development, AI Research and development, and organizing tech events with a blend of leadership experiences.
+              His works and area of interest spans including software development, AI Research and development, and organizing tech events with a blend of leadership experiences.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -97,7 +97,7 @@ export const AboutSection = () => {
                 </div>
                 <div className="text-left flex-1">
                   <h4 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">
-                    AI & ML Development
+                    AI, ML & DL Development
                   </h4>
                   <p className="text-muted-foreground leading-relaxed">
                     Building intelligent systems and applications using machine learning and artificial intelligence.
