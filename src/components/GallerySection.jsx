@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const galleryImages = [
   {
@@ -73,6 +75,8 @@ const galleryImages = [
 export const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3, once: true });
+  const [galleryRef, galleryVisible] = useScrollAnimation({ threshold: 0.1, once: true });
 
   const openModal = (image, index) => {
     setSelectedImage(image);
@@ -102,35 +106,60 @@ export const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Photo <span className="text-primary">Gallery</span>
-        </h2>
-        
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A collection of moments from my professional journey, projects, and achievements.
-        </p>
+    <section id="gallery" className="py-32 px-4 relative overflow-hidden bg-gradient-to-b from-background via-secondary/30 to-background">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div 
+          ref={titleRef}
+          className={cn(
+            "transition-all duration-1000 mb-16",
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          )}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Photo <span className="text-gradient">Gallery</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
+            A collection of moments from my professional journey, projects, and achievements.
+          </p>
+        </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div 
+          ref={galleryRef}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        >
           {galleryImages.map((image, index) => (
             <div
               key={image.id}
-              className="group relative aspect-square overflow-hidden rounded-lg bg-muted cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className={cn(
+                "group relative aspect-square overflow-hidden rounded-2xl cursor-pointer transition-all duration-700",
+                galleryVisible 
+                  ? "opacity-100 scale-100" 
+                  : "opacity-0 scale-90"
+              )}
+              style={{ transitionDelay: `${index * 50}ms` }}
               onClick={() => openModal(image, index)}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-4">
-                  <h3 className="font-semibold text-lg">{image.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
+                <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="font-bold text-lg">{image.title}</h3>
                 </div>
               </div>
+              
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{boxShadow: '0 0 30px rgba(139, 92, 246, 0.5)'}}></div>
             </div>
           ))}
         </div>
@@ -138,16 +167,16 @@ export const GallerySection = () => {
         {/* Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
             onClick={closeModal}
             onKeyDown={handleKeyDown}
             tabIndex={0}
           >
-            <div className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center">
+            <div className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center">
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                className="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:rotate-90"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -158,7 +187,7 @@ export const GallerySection = () => {
                   e.stopPropagation();
                   goToPrevious();
                 }}
-                className="absolute left-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                className="absolute left-4 z-10 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
               >
                 <ChevronLeft className="h-8 w-8" />
               </button>
@@ -169,22 +198,24 @@ export const GallerySection = () => {
                   e.stopPropagation();
                   goToNext();
                 }}
-                className="absolute right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                className="absolute right-4 z-10 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
               >
                 <ChevronRight className="h-8 w-8" />
               </button>
 
               {/* Image */}
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="max-w-full max-h-full object-contain"
-                onClick={(e) => e.stopPropagation()}
-              />
+              <div className="relative max-w-full max-h-full animate-scale-in">
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
 
               {/* Image Info */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center text-white bg-black/50 px-4 py-2 rounded-lg">
-                <h3 className="font-semibold">{selectedImage.title}</h3>
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-white bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20">
+                <h3 className="font-bold text-lg mb-1">{selectedImage.title}</h3>
                 <p className="text-sm text-gray-300">
                   {currentIndex + 1} of {galleryImages.length}
                 </p>

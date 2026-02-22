@@ -18,6 +18,14 @@
   --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
+  --animate-slide-up: slide-up 0.8s ease-out forwards;
+  --animate-slide-in-left: slide-in-left 0.8s ease-out forwards;
+  --animate-slide-in-right: slide-in-right 0.8s ease-out forwards;
+  --animate-scale-in: scale-in 0.6s ease-out forwards;
+  --animate-shimmer: shimmer 2.5s infinite;
+  --animate-glow: glow 3s ease-in-out infinite;
+  --animate-rotate-slow: rotate-slow 20s linear infinite;
+  --animate-gradient: gradient 8s ease infinite;
 
   @keyframes float {
     0%,
@@ -25,26 +33,100 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-20px);
     }
   }
   @keyframes pulse-subtle {
     0%,
     100% {
       opacity: 1;
+      transform: scale(1);
     }
     50% {
       opacity: 0.8;
+      transform: scale(1.05);
     }
   }
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(167, 139, 250, 0.6);
+    }
+  }
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
   @keyframes meteor {
@@ -64,27 +146,33 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 240 25% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
 
-    --primary: 250 47% 60%;
+    --primary: 262 83% 58%;
     --primary-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
+    
+    --secondary: 240 20% 96%;
+    --secondary-foreground: 222 47% 11%;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
+    --background: 224 71% 4%;
+    --foreground: 213 31% 95%;
 
-    --card: 222 47% 8%;
+    --card: 224 71% 8%;
 
-    --primary: 250 65% 65%;
-    --primary-foreground: 213 31% 91%;
+    --primary: 263 70% 65%;
+    --primary-foreground: 213 31% 95%;
 
-    --border: 217 33% 20%;
+    --border: 217 33% 17%;
+    
+    --secondary: 224 50% 12%;
+    --secondary-foreground: 213 31% 95%;
   }
 
   * {
@@ -98,6 +186,15 @@
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(262,83%,58%,0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(262,83%,58%,0.1) 0px, transparent 50%);
+  }
+  
+  body.dark {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(263,70%,65%,0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(263,70%,65%,0.15) 0px, transparent 50%);
   }
 }
 
@@ -124,29 +221,79 @@
 
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+  text-shadow: 0 0 20px rgba(167, 139, 250, 0.6), 0 0 40px rgba(167, 139, 250, 0.4);
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent;
 }
 
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:-translate-y-1;
+}
+
+@utility card-glass {
+  @apply bg-card/50 backdrop-blur-md border border-border/50 shadow-lg;
 }
 
 @utility gradient-border {
-  @apply relative rounded-md;
+  @apply relative rounded-lg;
   background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
   background-clip: padding-box;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+}
+
+@utility gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, hsl(var(--primary)), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-         hover:scale-105 active:scale-95;
+  @apply px-8 py-3 rounded-full bg-gradient-to-r from-primary to-purple-600 text-primary-foreground font-semibold 
+         transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.7)]
+         hover:scale-110 active:scale-95 relative overflow-hidden;
+}
+
+@utility cosmic-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+@utility cosmic-button:hover::before {
+  left: 100%;
 }
 
 @utility star {
   @apply absolute rounded-full bg-white;
   box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+}
+
+@utility shimmer {
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+@utility glow-card {
+  @apply transition-all duration-300;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+}
+
+@utility glow-card:hover {
+  box-shadow: 0 0 40px rgba(167, 139, 250, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
 }
 
 @utility meteor {

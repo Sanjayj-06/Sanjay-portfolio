@@ -1,4 +1,6 @@
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const educationData = [
   {
@@ -31,61 +33,85 @@ const educationData = [
 ];
 
 export const EducationSection = () => {
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3, once: true });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1, once: true });
+
   return (
-    <section id="education" className="py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          My <span className="text-primary">Education</span>
-        </h2>
-        
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          My academic journey and educational background that shaped my knowledge and skills.
-        </p>
+    <section id="education" className="py-32 px-4 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div 
+          ref={titleRef}
+          className={cn(
+            "transition-all duration-1000 mb-16",
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          )}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            My <span className="text-gradient">Education</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
+            My academic journey and educational background that shaped my knowledge and skills.
+          </p>
+        </div>
 
         {/* Education Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {educationData.map((education) => (
+        <div 
+          ref={cardsRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {educationData.map((education, index) => (
             <div
               key={education.id}
-              className="group relative bg-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/30"
+              className={cn(
+                "group relative card-glass rounded-2xl p-8 card-hover transition-all duration-700",
+                cardsVisible 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-10"
+              )}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Institution Image/Logo */}
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300 overflow-hidden">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden glow-card">
                   <img 
                     src={education.image} 
                     alt={education.institution}
                     className="w-full h-full object-contain p-2"
                     onError={(e) => {
-                      // Fallback to graduation cap icon if image fails to load
                       e.target.style.display = 'none';
                       e.target.nextElementSibling.style.display = 'block';
                     }}
                   />
                   <GraduationCap 
-                    className="h-8 w-8 md:h-10 md:w-10 text-primary" 
+                    className="h-10 w-10 md:h-12 md:w-12 text-primary" 
                     style={{ display: 'none' }}
                   />
                 </div>
               </div>
 
               {/* Institution Details */}
-              <div className="text-center space-y-3">
+              <div className="text-center space-y-4">
                 <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                   {education.institution}
                 </h3>
                 
-                <p className="text-lg font-semibold text-primary">
+                <p className="text-base font-semibold text-gradient">
                   {education.course}
                 </p>
                 
-                <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <Calendar className="h-4 w-4" />
-                  <span className="text-sm">{education.duration}</span>
+                <div className="flex items-center justify-center gap-2 text-muted-foreground bg-primary/10 px-3 py-1.5 rounded-full inline-flex">
+                  <Calendar className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-medium">{education.duration}</span>
                 </div>
                 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <MapPin className="h-4 w-4" />
+                  <MapPin className="h-4 w-4 text-primary" />
                   <span className="text-sm">{education.location}</span>
                 </div>
                 
@@ -95,7 +121,7 @@ export const EducationSection = () => {
               </div>
 
               {/* Decorative gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>

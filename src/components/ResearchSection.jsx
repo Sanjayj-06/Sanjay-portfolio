@@ -1,4 +1,6 @@
 import { Calendar, MapPin, FileText } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { cn } from "@/lib/utils";
 
 const research = [
   {
@@ -20,63 +22,90 @@ const research = [
 ];
 
 export const ResearchSection = () => {
-  return (
-    <section id="research" className="py-24 px-4 relative bg-secondary/20">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Research <span className="text-primary">Publications</span>
-        </h2>
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3, once: true });
+  const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.2, once: true });
 
-        <div className="space-y-8">
-          {research.map((paper, index) => (
+  return (
+    <section id="research" className="py-32 px-4 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div 
+          ref={titleRef}
+          className={cn(
+            "transition-all duration-1000 mb-16",
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          )}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Research <span className="text-gradient">Publications</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div 
+          ref={contentRef}
+          className="space-y-8"
+        >
+          {research.map((paper) => (
             <div
               key={paper.id}
-              className="bg-card p-6 md:p-8 rounded-lg shadow-xs border border-border hover:shadow-md transition-shadow duration-300"
+              className={cn(
+                "card-glass p-8 rounded-2xl card-hover group relative overflow-hidden transition-all duration-1000",
+                contentVisible 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-10"
+              )}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Image Section */}
-                <div className="lg:col-span-1">
-                  <div className="h-48 lg:h-full overflow-hidden rounded-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="space-y-8 relative z-10">
+                {/* Image Section - Landscape */}
+                <div className="w-full">
+                  <div className="h-64 md:h-80 lg:h-96 overflow-hidden rounded-xl shadow-lg group-hover:shadow-2xl transition-all duration-500">
                     <img
                       src={paper.image}
                       alt={paper.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="lg:col-span-2 space-y-4">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div className="space-y-6">
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2 leading-tight">
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
                         {paper.title}
                       </h3>
-                      <p className="text-lg font-medium text-primary mb-2">
+                      <p className="text-lg font-semibold text-gradient mb-3">
                         {paper.conference}
                       </p>
-                      <p className="text-muted-foreground mb-4">
+                      <p className="text-muted-foreground leading-relaxed">
                         {paper.description}
                       </p>
                     </div>
-                    <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{paper.publishedYear}</span>
+                    <div className="flex flex-col gap-2 text-sm">
+                      <div className="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <span className="font-medium">{paper.publishedYear}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <FileText className="h-4 w-4" />
+                      <div className="flex items-center gap-2 bg-green-500/10 px-3 py-1.5 rounded-full">
+                        <FileText className="h-4 w-4 text-green-600" />
                         <span className="text-green-600 font-medium">{paper.status}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2">
                     {paper.tags.map((tag, idx) => (
                       <span 
                         key={idx}
-                        className="px-3 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                        className="px-3 py-1.5 text-xs font-medium border border-primary/30 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors duration-300"
                       >
                         {tag}
                       </span>
@@ -84,11 +113,11 @@ export const ResearchSection = () => {
                   </div>
 
                   {/* Achievements */}
-                  <div className="space-y-2">
-                    <h4 className="text-lg font-semibold text-foreground mb-3">Key Achievements</h4>
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-bold text-foreground">Key Achievements</h4>
                     {paper.achievements.map((achievement, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 shadow-sm"></div>
                         <p className="text-muted-foreground leading-relaxed">{achievement}</p>
                       </div>
                     ))}
