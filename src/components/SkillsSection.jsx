@@ -54,7 +54,7 @@ export const SkillsSection = () => {
           )}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            My <span className="text-gradient">Skills</span>
+            <span className="text-gradient">Skills</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full"></div>
         </div>
