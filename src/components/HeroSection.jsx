@@ -96,8 +96,8 @@ export const HeroSection = () => {
             </div>
             
             <div className="opacity-0 animate-fade-in-delay-2 space-y-3">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground/90">
-                <span className="text-gradient">AI Developer & Full Stack Engineer</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">
+                <span className="text-white">AI Developer & Full Stack Engineer</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full mx-auto"></div>
             </div>
