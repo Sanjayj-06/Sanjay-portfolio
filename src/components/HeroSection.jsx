@@ -36,7 +36,7 @@ export const HeroSection = () => {
               <div className="absolute top-4 left-4 z-10 opacity-0 animate-fade-in-delay-1">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
-                    src="/inf26vot.JPG"
+                    src="/sj_hero.png"
                     alt="Sanjay Jayakumar Professional"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
