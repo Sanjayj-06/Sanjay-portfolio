@@ -156,7 +156,7 @@ export const HeroSection = () => {
                 className="px-8 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center gap-2"
               >
                 <Video className="h-5 w-5" />
-                <span>Take a look at the recent talks</span>
+                <span>Take a look at my recent talks</span>
               </a>
             </div>
           </div>
