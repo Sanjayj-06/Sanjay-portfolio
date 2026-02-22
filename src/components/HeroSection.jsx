@@ -1,4 +1,4 @@
-import { ArrowDown, Linkedin, Github, Mail, Download } from "lucide-react";
+import { ArrowDown, Linkedin, Github, Mail, Download, Video } from "lucide-react";
 
 export const HeroSection = () => {
   return (
@@ -36,7 +36,7 @@ export const HeroSection = () => {
               <div className="absolute top-4 left-4 z-10 opacity-0 animate-fade-in-delay-1">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
-                    src="/sanjay 1.jpg"
+                    src="/inf26vot.JPG"
                     alt="Sanjay Jayakumar Professional"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
@@ -69,7 +69,7 @@ export const HeroSection = () => {
               <div className="absolute bottom-4 right-4 z-10 opacity-0 animate-fade-in-delay-4">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
-                    src="/sanjay photo1.jpg"
+                    src="/interaction.jpg"
                     alt="Sanjay Jayakumar Event"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
@@ -150,6 +150,13 @@ export const HeroSection = () => {
                 className="px-8 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
               >
                 Contact Me
+              </a>
+              <a 
+                href="#videos"
+                className="px-8 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center gap-2"
+              >
+                <Video className="h-5 w-5" />
+                <span>Take a look at the recent talks</span>
               </a>
             </div>
           </div>

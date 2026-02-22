@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
@@ -75,8 +75,9 @@ const galleryImages = [
 export const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3, once: true });
-  const [galleryRef, galleryVisible] = useScrollAnimation({ threshold: 0.1, once: true });
+  const [carouselRef, carouselVisible] = useScrollAnimation({ threshold: 0.1, once: true });
 
   const openModal = (image, index) => {
     setSelectedImage(image);
@@ -129,39 +130,72 @@ export const GallerySection = () => {
           </p>
         </div>
 
-        {/* Gallery Grid */}
+        {/* Infinite Scrolling Carousel */}
         <div 
-          ref={galleryRef}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          ref={carouselRef}
+          className={cn(
+            "relative transition-all duration-1000 overflow-hidden",
+            carouselVisible ? "opacity-100" : "opacity-0"
+          )}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          {galleryImages.map((image, index) => (
-            <div
-              key={image.id}
-              className={cn(
-                "group relative aspect-square overflow-hidden rounded-2xl cursor-pointer transition-all duration-700",
-                galleryVisible 
-                  ? "opacity-100 scale-100" 
-                  : "opacity-0 scale-90"
-              )}
-              style={{ transitionDelay: `${index * 50}ms` }}
-              onClick={() => openModal(image, index)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
-                <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-bold text-lg">{image.title}</h3>
+          <div className="relative">
+            {/* Scrolling Container */}
+            <div className={cn(
+              "flex gap-6 animate-scroll",
+              isPaused && "pause-animation"
+            )}>
+              {/* First set of images */}
+              {galleryImages.map((image, index) => (
+                <div
+                  key={`first-${image.id}`}
+                  className="group relative flex-shrink-0 w-80 h-96 rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-secondary/10"
+                  onClick={() => openModal(image, index)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="font-bold text-lg mb-1">{image.title}</h3>
+                    </div>
+                  </div>
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{boxShadow: '0 0 30px rgba(139, 92, 246, 0.5)'}}></div>
                 </div>
-              </div>
-              
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{boxShadow: '0 0 30px rgba(139, 92, 246, 0.5)'}}></div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {galleryImages.map((image, index) => (
+                <div
+                  key={`second-${image.id}`}
+                  className="group relative flex-shrink-0 w-80 h-96 rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-secondary/10"
+                  onClick={() => openModal(image, index)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="font-bold text-lg mb-1">{image.title}</h3>
+                    </div>
+                  </div>
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{boxShadow: '0 0 30px rgba(139, 92, 246, 0.5)'}}></div>
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Gradient Overlays */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
+          </div>
         </div>
 
         {/* Modal */}

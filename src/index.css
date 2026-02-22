@@ -26,6 +26,7 @@
   --animate-glow: glow 3s ease-in-out infinite;
   --animate-rotate-slow: rotate-slow 20s linear infinite;
   --animate-gradient: gradient 8s ease infinite;
+  --animate-scroll: scroll 40s linear infinite;
 
   @keyframes float {
     0%,
@@ -140,6 +141,14 @@
     100% {
       transform: rotate(215deg) translateX(-500px);
       opacity: 0;
+    }
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-336px * 11));
     }
   }
 }
@@ -261,6 +270,10 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
 }
 
 #root {

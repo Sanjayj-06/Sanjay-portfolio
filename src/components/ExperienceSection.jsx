@@ -13,6 +13,14 @@ const experiences = [
   },
   {
     id: 2,
+    title: "Head of Events",
+    company: "Cyber Security Club",
+    location: "PSG College of Technology, Coimbatore",
+    duration: "Sep 2025 - Present",
+    description: []
+  },
+  {
+    id: 3,
     title: "Mobile Application Prototype Developer",
     company: "AI BILL , Inria Grenoble & PSG College of Technology",
     location: "Remote",
@@ -25,7 +33,7 @@ const experiences = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Joint Secretary",
     company: "Computer Science Engineering Association (CSEA) 2024 - 2025",
     location: "PSG College of Technology, Coimbatore",

@@ -10,6 +10,7 @@ import { CourseworkSection } from "../components/CourseworkSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ResearchSection } from "../components/ResearchSection";
 import { GallerySection } from "../components/GallerySection";
+import { VideoSection } from "../components/VideoSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 
@@ -33,6 +34,7 @@ export const Home = () => {
         <CourseworkSection />
         <ProjectsSection />
         <ResearchSection />
+        <VideoSection />
         <GallerySection />
         <ContactSection />
       </main>
