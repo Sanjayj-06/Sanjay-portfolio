@@ -33,8 +33,8 @@ export const HeroSection = () => {
               </div>
 
               {/* Side Photo 1 - Top Left */}
-              <div className="absolute top-4 left-4 z-10 opacity-0 animate-fade-in-delay-1 hidden sm:block">
-                <div className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
+              <div className="absolute top-4 left-4 z-10 opacity-0 animate-fade-in-delay-1">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
                     src="/sanjay 1.jpg"
                     alt="Sanjay Jayakumar Professional"
@@ -44,8 +44,8 @@ export const HeroSection = () => {
               </div>
 
               {/* Side Photo 2 - Top Right */}
-              <div className="absolute top-4 right-4 z-10 opacity-0 animate-fade-in-delay-2 hidden sm:block">
-                <div className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
+              <div className="absolute top-4 right-4 z-10 opacity-0 animate-fade-in-delay-2">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
                     src="/gallery/15f99ca5-9dfc-45ab-a8b2-cf5c08997850.jpg"
                     alt="Sanjay Jayakumar Speaking"
@@ -55,8 +55,8 @@ export const HeroSection = () => {
               </div>
 
               {/* Side Photo 3 - Bottom Left */}
-              <div className="absolute bottom-4 left-4 z-10 opacity-0 animate-fade-in-delay-3 hidden md:block">
-                <div className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
+              <div className="absolute bottom-4 left-4 z-10 opacity-0 animate-fade-in-delay-3">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
                     src="/sanjay 2.jpg"
                     alt="Sanjay Jayakumar Team"
@@ -66,8 +66,8 @@ export const HeroSection = () => {
               </div>
 
               {/* Side Photo 4 - Bottom Right */}
-              <div className="absolute bottom-4 right-4 z-10 opacity-0 animate-fade-in-delay-4 hidden md:block">
-                <div className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
+              <div className="absolute bottom-4 right-4 z-10 opacity-0 animate-fade-in-delay-4">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 glow-card bg-card/50 backdrop-blur-sm">
                   <img
                     src="/sanjay photo1.jpg"
                     alt="Sanjay Jayakumar Event"
