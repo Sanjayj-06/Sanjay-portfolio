@@ -137,8 +137,9 @@ export const HeroSection = () => {
 
             <div className="flex flex-wrap justify-center gap-4 pt-6 opacity-0 animate-fade-in-delay-4">
               <a 
-                href="/path-to-your-resume.pdf" 
-                download="Sanjay_Jayakumar_Resume.pdf"
+                href="/Sanjay J Resume Copy (1).pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cosmic-button flex items-center gap-2 shadow-xl group"
               >
                 <Download className="h-5 w-5" />
