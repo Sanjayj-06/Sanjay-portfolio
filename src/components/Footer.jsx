@@ -8,13 +8,12 @@ export const Footer = () => {
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center justify-center gap-6">
-          {/* Back to top button */}
           <a
             href="#hero"
-            className="p-4 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 hover:from-primary/30 hover:to-purple-500/30 text-primary transition-all duration-300 hover:scale-110 glow-card group"
+            className="p-3.5 rounded-full border border-border/80 bg-card/85 text-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 hover:scale-110 active:scale-95 shadow-xs hover:shadow-md cursor-pointer"
             aria-label="Back to top"
           >
-            <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform duration-300" />
+            <ArrowUp size={20} className="hover:-translate-y-0.5 transition-transform duration-300" />
           </a>
 
           {/* Copyright text */}

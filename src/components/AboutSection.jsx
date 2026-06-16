@@ -8,120 +8,136 @@ export const AboutSection = () => {
   const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.2, once: true });
 
   return (
-    <section id="about" className="py-32 px-4 relative overflow-hidden">
+    <section id="about" className="py-24 md:py-32 px-4 relative overflow-hidden bg-background">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20 dark:opacity-30">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
+        
+        {/* Section Title */}
         <div 
           ref={titleRef}
           className={cn(
-            "transition-all duration-1000 mb-16",
-            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            "transition-all duration-1000 mb-16 text-center",
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            About <span className="text-gradient">Sanjay</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-3">
+            About <span className="text-gradient font-serif italic">Sanjay</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-indigo-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Bio Column */}
           <div 
             ref={contentRef}
             className={cn(
-              "space-y-6 transition-all duration-1000 delay-200",
-              contentVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+              "space-y-6 transition-all duration-1000 delay-200 text-left",
+              contentVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             )}
           >
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-              Passionate Software and AI Developer
+            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground/90 leading-snug">
+              AI Research Engineer &  <br />
+              <span className="text-primary font-serif italic font-semibold">Software Developer</span>
             </h3>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              A Computer Science and Engineering student at PSG College of Technology with a focus on AI and Machine Learning , Deep Learning. He enjoys building full-stack applications, contributing to research, and leading tech initiatives.
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+              I am Sanjay Jayakumar, a Computer Science and Engineering student at PSG College of Technology with a strong passion for Artificial Intelligence, Machine Learning, Deep Learning, and Software Engineering.
+
+My work focuses on developing intelligent, sustainable, and human-centric software systems that combine cutting-edge AI research with robust engineering principles. Currently undergoing my Summer Internship at Software Engineering Research Center , IIITH
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              His works and area of interest spans including software development, AI Research and development, and organizing tech events with a blend of leadership experiences.
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+              Beyond technical development, I actively contribute to the student community through leadership roles in the Computer Science and Engineering Association (CSEA), where I organize technical events, mentor students, and promote innovation-driven learning. I enjoy bridging the gap between research and engineering by building scalable, reliable, and impactful technologies that address real-world challenges.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            {/* Custom CTA Action Row */}
+            <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="#contact" 
-                className="cosmic-button text-center"
+                className="cosmic-button text-center min-w-[140px] shadow-sm cursor-pointer"
               >
-                Get In Touch
+                <span>Get In Touch</span>
               </a>
 
               <a
-                href=""
-                className="px-8 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 text-center"
+                href="/Sanjay J Resume Copy (1).pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full border border-border bg-card/85 text-foreground font-semibold hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 text-center cursor-pointer shadow-xs min-w-[140px]"
               >
                 Download Resume
               </a>
             </div>
           </div>
 
+          {/* Cards Column */}
           <div 
             ref={cardsRef}
             className={cn(
-              "grid grid-cols-1 gap-6 transition-all duration-1000 delay-400",
-              cardsVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              "grid grid-cols-1 gap-6 transition-all duration-1000 delay-300",
+              cardsVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             )}
           >
-            <div className="card-glass p-8 rounded-2xl card-hover group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                  <Code className="h-7 w-7 text-primary" />
+            {/* Card 1 - Software Dev */}
+            <div className="glass-premium p-6 md:p-8 rounded-[1.75rem] card-hover group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex items-start gap-5 relative z-10 text-left">
+                <div className="p-3.5 rounded-2xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform duration-500 shadow-xs">
+                  <Code className="h-6 w-6" />
                 </div>
-                <div className="text-left flex-1">
-                  <h4 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">
-                    Software Development
+                <div className="flex-1 space-y-1">
+                  <h4 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+                    Software Engineering
                   </h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Creating responsive websites and mobile applications with modern frameworks.
-                  </p>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    Designing and developing scalable, production-ready applications using modern software engineering principles, full-stack technologies, and efficient system architectures.
+                  </p>   
                 </div>
               </div>
             </div>
 
-            <div className="card-glass p-8 rounded-2xl card-hover group relative overflow-hidden" style={{transitionDelay: '100ms'}}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                  <User className="h-7 w-7 text-primary" />
+            {/* Card 2 - AI/ML/DL */}
+            <div className="glass-premium p-6 md:p-8 rounded-[1.75rem] card-hover group relative overflow-hidden" style={{transitionDelay: '100ms'}}>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex items-start gap-5 relative z-10 text-left">
+                <div className="p-3.5 rounded-2xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform duration-500 shadow-xs">
+                  <User className="h-6 w-6" />
                 </div>
-                <div className="text-left flex-1">
-                  <h4 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">
+                <div className="flex-1 space-y-1">
+                  <h4 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
                     AI, ML & DL Development
                   </h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Building intelligent systems and applications using machine learning and artificial intelligence.
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    Researching and building intelligent systems using Machine Learning, Deep Learning, Computer Vision, and Natural Language Processing for real-world applications.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="card-glass p-8 rounded-2xl card-hover group relative overflow-hidden" style={{transitionDelay: '200ms'}}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                  <Briefcase className="h-7 w-7 text-primary" />
+            {/* Card 3 - Leadership/Management */}
+            <div className="glass-premium p-6 md:p-8 rounded-[1.75rem] card-hover group relative overflow-hidden" style={{transitionDelay: '200ms'}}>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex items-start gap-5 relative z-10 text-left">
+                <div className="p-3.5 rounded-2xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform duration-500 shadow-xs">
+                  <Briefcase className="h-6 w-6" />
                 </div>
-                <div className="text-left flex-1">
-                  <h4 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">
-                    Project Management
+                <div className="flex-1 space-y-1">
+                  <h4 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+                    Leadership & Community Impact
                   </h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Leading projects from conception to completion with agile methodologies.
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    Leading technical initiatives, organizing large-scale events, mentoring students, and fostering innovation through active involvement in the Computer Science and Engineering Association.
                   </p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

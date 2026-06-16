@@ -7,7 +7,6 @@ const navItems = [
   { name: "About", href: "#about" },
   { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Research", href: "#research" },
   { name: "Videos", href: "#videos" },
@@ -23,7 +22,7 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Update active section based on scroll position
       const sections = navItems.map(item => item.href.slice(1));
       const currentSection = sections.find(section => {
@@ -42,45 +41,45 @@ export const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   return (
     <nav
       className={cn(
-        "fixed w-full z-50 transition-all duration-500",
-        isScrolled 
-          ? "py-3 bg-background/70 backdrop-blur-xl shadow-lg border-b border-border/50" 
-          : "py-5 bg-transparent"
+        "fixed z-40 transition-all duration-500",
+        isScrolled
+          ? "top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl rounded-full bg-card/75 border border-border/80 shadow-md backdrop-blur-xl py-2 px-6"
+          : "top-0 left-0 w-full bg-transparent py-5 pl-8 pr-20"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <a
-          className="text-xl md:text-2xl font-bold flex items-center group"
+          className="text-lg md:text-xl font-bold flex items-center group"
           href="#hero"
         >
-          <span className="relative z-10 transition-all duration-300">
-            <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent group-hover:from-purple-500 group-hover:via-primary group-hover:to-purple-500 transition-all duration-500"> 
-              Sanjay Jayakumar 
+          <span className="relative z-10 font-sans tracking-tight font-extrabold">
+            <span className="bg-gradient-to-r from-primary via-indigo-500 to-primary bg-clip-text text-transparent group-hover:from-indigo-500 group-hover:to-primary transition-all duration-500">
+              Sanjay Jayakumar
             </span>
           </span>
         </a>
 
         {/* desktop nav */}
-        <div className="hidden lg:flex space-x-1">
+        <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative group",
+                "px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-300 relative group",
                 activeSection === item.href.slice(1)
                   ? "text-primary"
-                  : "text-foreground/70 hover:text-primary"
+                  : "text-foreground/75 hover:text-primary"
               )}
             >
               {item.name}
               <span className={cn(
-                "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-primary to-purple-500 transition-all duration-300 rounded-full",
-                activeSection === item.href.slice(1) ? "w-3/4" : "w-0 group-hover:w-3/4"
+                "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-primary to-indigo-500 transition-all duration-300 rounded-full",
+                activeSection === item.href.slice(1) ? "w-1/2" : "w-0 group-hover:w-1/2"
               )}></span>
             </a>
           ))}
@@ -89,15 +88,15 @@ export const Navbar = () => {
         {/* mobile nav */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="lg:hidden p-2 text-foreground z-50 hover:text-primary transition-colors duration-300 hover:scale-110"
+          className="lg:hidden p-2 text-foreground z-50 hover:text-primary transition-colors duration-300 hover:scale-110 cursor-pointer"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center",
             "transition-all duration-500 lg:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -110,21 +109,21 @@ export const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-2xl font-semibold transition-all duration-300 hover:text-primary hover:scale-110",
+                  "text-xl font-bold transition-all duration-300 hover:text-primary hover:scale-110",
                   activeSection === item.href.slice(1) ? "text-primary scale-110" : "text-foreground/80",
                   isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 )}
-                style={{ transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms' }}
+                style={{ transitionDelay: isMenuOpen ? `${index * 40}ms` : '0ms' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
           </div>
-          
+
           {/* Decorative gradient in mobile menu */}
-          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-50 animate-pulse-subtle"></div>
-          <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl opacity-50 animate-pulse-subtle" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-50 animate-pulse-subtle"></div>
+          <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl opacity-50 animate-pulse-subtle" style={{ animationDelay: '1s' }}></div>
         </div>
       </div>
     </nav>

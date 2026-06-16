@@ -21,7 +21,6 @@ export const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
     setTimeout(() => {
@@ -35,159 +34,94 @@ export const ContactSection = () => {
   };
   
   return (
-    <section id="contact" className="py-32 px-4 relative overflow-hidden bg-gradient-to-b from-background via-secondary/30 to-background">
+    <section id="contact" className="py-24 md:py-32 px-4 relative overflow-hidden bg-background">
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 dark:opacity-30">
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
+        
+        {/* Section Title */}
         <div 
           ref={titleRef}
           className={cn(
-            "transition-all duration-1000 mb-16",
-            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            "transition-all duration-1000 mb-16 text-center",
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Get In <span className="text-gradient">Touch</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-3 text-center">
+            Get In <span className="text-gradient font-serif italic">Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities.
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-indigo-500 mx-auto rounded-full mb-4"></div>
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
+            Have a project in mind, research collaboration interest, or want to connect? I am always open to discussing new opportunities.
           </p>
         </div>
 
         <div 
           ref={contentRef}
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-2 gap-12 transition-all duration-1000",
-            contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            "grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch transition-all duration-1000",
+            contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gradient">
-                Contact Information
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 group">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-300 glow-card">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-lg mb-1">Email</h4>
-                    <a
-                      href="mailto:sanjayjayakumar91@gmail.com"
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                    >
-                      sanjayjayakumar91@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-300 glow-card">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-lg mb-1">Phone</h4>
-                    <a
-                      href="tel:+919789710033"
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                    >
-                      +91 9789710033
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-300 glow-card">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-lg mb-1">Location</h4>
-                    <p className="text-muted-foreground">
-                      13/1 Jamiya Nagar, Kovaipudur, Coimbatore 641042
-                    </p>
-                  </div>
-                </div>
+          {/* Email Card */}
+          <div className="glass-premium p-6 md:p-8 rounded-[1.75rem] card-hover group relative overflow-hidden flex flex-col items-center text-center justify-between min-h-[220px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="flex flex-col items-center z-10 w-full">
+              <div className="p-3.5 rounded-2xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform duration-500 shadow-xs mb-4">
+                <Mail className="h-6 w-6" />
               </div>
+              <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Email
+              </h3>
+              <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mb-3">Direct Mail</p>
             </div>
+            <a
+              href="mailto:sanjayjayakumar91@gmail.com"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-semibold text-sm break-all z-10"
+            >
+              sanjayjayakumar91@gmail.com
+            </a>
           </div>
 
-          <div className="card-glass p-8 rounded-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 relative z-10">
-              Send a Message
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold mb-2"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-border bg-background/50 backdrop-blur-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                  placeholder="John Doe"
-                />
+          {/* Phone Card */}
+          <div className="glass-premium p-6 md:p-8 rounded-[1.75rem] card-hover group relative overflow-hidden flex flex-col items-center text-center justify-between min-h-[220px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="flex flex-col items-center z-10 w-full">
+              <div className="p-3.5 rounded-2xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform duration-500 shadow-xs mb-4">
+                <Phone className="h-6 w-6" />
               </div>
+              <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Phone
+              </h3>
+              <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mb-3">Call or Message</p>
+            </div>
+            <a
+              href="tel:+919789710033"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-semibold text-sm z-10"
+            >
+              +91 9789710033
+            </a>
+          </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold mb-2"
-                >
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-border bg-background/50 backdrop-blur-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                  placeholder="john@example.com"
-                />
+          {/* Location Card */}
+          <div className="glass-premium p-6 md:p-8 rounded-[1.75rem] card-hover group relative overflow-hidden flex flex-col items-center text-center justify-between min-h-[220px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="flex flex-col items-center z-10 w-full">
+              <div className="p-3.5 rounded-2xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform duration-500 shadow-xs mb-4">
+                <MapPin className="h-6 w-6" />
               </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold mb-2"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-border bg-background/50 backdrop-blur-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
-                  placeholder="Hello! I'd like to discuss..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2",
-                  isSubmitting && "opacity-70 cursor-not-allowed"
-                )}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={18} className={cn(isSubmitting && "animate-pulse")} />
-              </button>
-            </form>
+              <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300 mb-1">
+                Location
+              </h3>
+              <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mb-3">Current Base</p>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-[240px] font-semibold z-10">
+              PSG College of Technology Campus, Coimbatore, Tamil Nadu
+            </p>
           </div>
         </div>
       </div>
