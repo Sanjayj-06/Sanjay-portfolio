@@ -12,6 +12,7 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { ResearchSection } from "../components/ResearchSection";
 import { VideoSection } from "../components/VideoSection";
 import { ContactSection } from "../components/ContactSection";
+import { TestimonialSection } from "../components/TestimonialSection";
 import { Footer } from "../components/Footer";
 
 export const Home = () => {
@@ -36,6 +37,7 @@ export const Home = () => {
         {path === "/projects" && <ProjectsSection />}
         {path === "/research" && <ResearchSection />}
         {path === "/videos" && <VideoSection />}
+        {path === "/" && <TestimonialSection />}
         {path === "/" && <ContactSection />}
       </main>
 

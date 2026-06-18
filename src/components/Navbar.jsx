@@ -11,6 +11,7 @@ const navItems = [
   { name: "Projects", href: "/projects" },
   { name: "Research", href: "/research" },
   { name: "Videos", href: "/videos" },
+  { name: "Testimonials", href: "/#testimonials" },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -30,6 +31,16 @@ export const Navbar = () => {
         const rect = contactElement.getBoundingClientRect();
         if (rect.top <= window.innerHeight * 0.6) {
           setActiveSection("contact");
+          return;
+        }
+      }
+
+      // Check if testimonials section is scrolled into view
+      const testimonialsElement = document.getElementById("testimonials");
+      if (testimonialsElement) {
+        const rect = testimonialsElement.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.6 && rect.bottom >= 100) {
+          setActiveSection("testimonials");
           return;
         }
       }
@@ -81,7 +92,6 @@ export const Navbar = () => {
           {navItems.map((item) => {
             const isActive = getIsActive(item.href);
             const linkProps = {
-              key: item.name,
               className: cn(
                 "px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-300 relative group",
                 isActive
@@ -102,13 +112,13 @@ export const Navbar = () => {
 
             if (item.href.startsWith("/")) {
               return (
-                <Link to={item.href} {...linkProps}>
+                <Link key={item.name} to={item.href} {...linkProps}>
                   {linkContent}
                 </Link>
               );
             } else {
               return (
-                <a href={item.href} {...linkProps}>
+                <a key={item.name} href={item.href} {...linkProps}>
                   {linkContent}
                 </a>
               );
@@ -141,7 +151,6 @@ export const Navbar = () => {
         {navItems.map((item, index) => {
           const isActive = getIsActive(item.href);
           const linkProps = {
-            key: item.name,
             className: cn(
               "text-xl font-bold transition-all duration-300 hover:text-primary hover:scale-110",
               isActive ? "text-primary scale-110" : "text-foreground/80",
@@ -153,13 +162,13 @@ export const Navbar = () => {
 
           if (item.href.startsWith("/")) {
             return (
-              <Link to={item.href} {...linkProps}>
+              <Link key={item.name} to={item.href} {...linkProps}>
                 {item.name}
               </Link>
             );
           } else {
             return (
-              <a href={item.href} {...linkProps}>
+              <a key={item.name} href={item.href} {...linkProps}>
                 {item.name}
               </a>
             );

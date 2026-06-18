@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Linkedin, Github, Mail, Download, Video, GraduationCap, Award, FileText } from "lucide-react";
+import { ArrowRight, Linkedin, Github, Mail, Download, Video, GraduationCap, Award, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import headshot from "../assets/1379bc7d-2bb1-4376-a1e6-08b06069b8ec (1).jpg";
 
@@ -192,11 +192,6 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Bounce scroll down arrow */}
-      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce z-10 opacity-70">
-        <span className="text-[10px] text-muted-foreground mb-0.5 font-semibold uppercase tracking-wider">Scroll to explore</span>
-        <ArrowDown className="h-3.5 w-3.5 text-primary" />
-      </div>
     </section>
   );
 };
