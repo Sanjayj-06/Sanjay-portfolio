@@ -1,4 +1,5 @@
-import { ArrowDown, Linkedin, Github, Mail, Download, Video, GraduationCap, Award, FileText } from "lucide-react";
+import { ArrowDown, ArrowRight, Linkedin, Github, Mail, Download, Video, GraduationCap, Award, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 import headshot from "../assets/1379bc7d-2bb1-4376-a1e6-08b06069b8ec (1).jpg";
 
 export const HeroSection = () => {
@@ -76,22 +77,20 @@ export const HeroSection = () => {
             {/* CTA Actions & Social Links Merged in one compact row */}
             <div className="flex flex-wrap items-center gap-4 pt-2 opacity-0 animate-fade-in-delay-3">
               <div className="flex flex-wrap gap-3">
-                <a 
-                  href="/Sanjay J Resume Copy (1).pdf" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link 
+                  to="/about" 
                   className="cosmic-button shadow-md flex items-center gap-2 group cursor-pointer"
                 >
-                  <Download className="h-4 w-4 group-hover:translate-y-0.5 transition-transform duration-300" />
-                  <span>Resume</span>
-                </a>
-                <a 
-                  href="#videos"
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform duration-300" />
+                  <span>Know more</span>
+                </Link>
+                <Link 
+                  to="/videos"
                   className="px-5 py-2.5 rounded-full border border-border bg-card/80 text-foreground font-semibold hover:border-primary/50 hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs flex items-center gap-2 text-sm cursor-pointer"
                 >
                   <Video className="h-4 w-4 text-primary" />
                   <span>Watch Talks</span>
-                </a>
+                </Link>
               </div>
 
               {/* Minimalist Inline Vertical Divider */}

@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { StarBackground } from "@/components/StarBackground";
@@ -9,12 +10,14 @@ import { SkillsSection } from "../components/SkillsSection";
 import { CourseworkSection } from "../components/CourseworkSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ResearchSection } from "../components/ResearchSection";
-import { GallerySection } from "../components/GallerySection";
 import { VideoSection } from "../components/VideoSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 
 export const Home = () => {
+  const location = useLocation();
+  const path = location.pathname;
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Theme Toggle */}
@@ -26,15 +29,14 @@ export const Home = () => {
       <Navbar />
       {/* Main Content */}
       <main>
-        <HeroSection />
-        <AboutSection />
-        <EducationSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <ResearchSection />
-        <VideoSection />
-        <GallerySection />
-        <ContactSection />
+        {path === "/" && <HeroSection />}
+        {path === "/about" && <AboutSection />}
+        {path === "/education" && <EducationSection />}
+        {path === "/experience" && <ExperienceSection />}
+        {path === "/projects" && <ProjectsSection />}
+        {path === "/research" && <ResearchSection />}
+        {path === "/videos" && <VideoSection />}
+        {path === "/" && <ContactSection />}
       </main>
 
       {/* Footer */}

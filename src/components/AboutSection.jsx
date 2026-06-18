@@ -1,4 +1,5 @@
 import { Briefcase, Code, User } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 
@@ -58,12 +59,12 @@ My work focuses on developing intelligent, sustainable, and human-centric softwa
 
             {/* Custom CTA Action Row */}
             <div className="flex flex-wrap gap-4 pt-4">
-              <a 
-                href="#contact" 
+              <Link 
+                to="/#contact" 
                 className="cosmic-button text-center min-w-[140px] shadow-sm cursor-pointer"
               >
                 <span>Get In Touch</span>
-              </a>
+              </Link>
 
               <a
                 href="/Sanjay J Resume Copy (1).pdf"
