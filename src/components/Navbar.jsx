@@ -55,10 +55,10 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-40 pointer-events-none">
+    <nav className="fixed top-0 left-0 w-full z-40">
       <div
         className={cn(
-          "mx-auto pointer-events-auto transition-all duration-300 ease-in-out",
+          "mx-auto transition-all duration-300 ease-in-out",
           isScrolled
             ? "mt-4 w-[92%] max-w-6xl rounded-full bg-card/75 border border-border/80 shadow-md backdrop-blur-xl py-2 px-6"
             : "mt-0 w-full max-w-full bg-transparent py-5 pl-8 pr-20"
@@ -124,51 +124,52 @@ export const Navbar = () => {
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center",
-            "transition-all duration-500 lg:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-6 text-center">
-            {navItems.map((item, index) => {
-              const isActive = getIsActive(item.href);
-              const linkProps = {
-                key: item.name,
-                className: cn(
-                  "text-xl font-bold transition-all duration-300 hover:text-primary hover:scale-110",
-                  isActive ? "text-primary scale-110" : "text-foreground/80",
-                  isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                ),
-                style: { transitionDelay: isMenuOpen ? `${index * 40}ms` : '0ms' },
-                onClick: () => setIsMenuOpen(false)
-              };
-
-              if (item.href.startsWith("/")) {
-                return (
-                  <Link to={item.href} {...linkProps}>
-                    {item.name}
-                  </Link>
-                );
-              } else {
-                return (
-                  <a href={item.href} {...linkProps}>
-                    {item.name}
-                  </a>
-                );
-              }
-            })}
-          </div>
-
-          {/* Decorative gradient in mobile menu */}
-          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-50 animate-pulse-subtle"></div>
-          <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl opacity-50 animate-pulse-subtle" style={{ animationDelay: '1s' }}></div>
-        </div>
       </div>
+    </div>
+
+    {/* Mobile Menu Overlay */}
+    <div
+      className={cn(
+        "fixed inset-0 bg-background/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center",
+        "transition-all duration-500 lg:hidden",
+        isMenuOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      )}
+    >
+      <div className="flex flex-col space-y-6 text-center">
+        {navItems.map((item, index) => {
+          const isActive = getIsActive(item.href);
+          const linkProps = {
+            key: item.name,
+            className: cn(
+              "text-xl font-bold transition-all duration-300 hover:text-primary hover:scale-110",
+              isActive ? "text-primary scale-110" : "text-foreground/80",
+              isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            ),
+            style: { transitionDelay: isMenuOpen ? `${index * 40}ms` : '0ms' },
+            onClick: () => setIsMenuOpen(false)
+          };
+
+          if (item.href.startsWith("/")) {
+            return (
+              <Link to={item.href} {...linkProps}>
+                {item.name}
+              </Link>
+            );
+          } else {
+            return (
+              <a href={item.href} {...linkProps}>
+                {item.name}
+              </a>
+            );
+          }
+        })}
+      </div>
+
+      {/* Decorative gradient in mobile menu */}
+      <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-50 animate-pulse-subtle"></div>
+      <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl opacity-50 animate-pulse-subtle" style={{ animationDelay: '1s' }}></div>
     </div>
   </nav>
   );
