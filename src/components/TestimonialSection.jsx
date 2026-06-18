@@ -6,7 +6,13 @@ const testimonialsData = [
   {
     id: 1,
     name: "Dr R Arumuganthan",
-    designation: "Retired Professor of Mathematics",
+    designationLines: [
+      "Retired Professor of Mathematics,",
+      "Former Dean - Students Union ,",
+      "Former Contoller of Examination,",
+      "Former HOD - Mathematics,",
+      "PSG College of Technology"
+    ],
     institution: "",
     content: `It is my pleasure to recommend Mr Sanjay J, a final year student of BE CS (Artificial Intelligence and Machine Learning). I have had the opportunity to work with him through several student and institutional initiatives, where he has consistently demonstrated leadership, commitment, and professionalism.
 
@@ -109,9 +115,15 @@ export const TestimonialSection = () => {
                   </div>
 
                   {/* Designation */}
-                  <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
-                    {testimonial.designation}
-                  </p>
+                  <div className="text-xs text-muted-foreground font-semibold leading-relaxed space-y-1">
+                    {testimonial.designationLines ? (
+                      testimonial.designationLines.map((line, idx) => (
+                        <p key={idx}>{line}</p>
+                      ))
+                    ) : (
+                      <p>{testimonial.designation}</p>
+                    )}
+                  </div>
                 </div>
 
                 {/* View LOR Button */}
