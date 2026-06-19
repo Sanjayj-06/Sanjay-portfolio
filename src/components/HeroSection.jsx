@@ -20,7 +20,7 @@ export const HeroSection = () => {
           
           {/* Photo Column - Left Column on Desktop, Top Column on Mobile */}
           <div className="flex-shrink-0 relative w-full lg:w-auto flex items-center justify-center opacity-0 animate-scale-in lg:-translate-y-8" style={{animationDelay: '0.2s'}}>
-            <div className="relative w-72 h-60 sm:w-80 sm:h-68 md:w-[380px] md:h-[320px] lg:w-[460px] lg:h-[360px] xl:w-[500px] xl:h-[390px]">
+            <div className="relative w-70 h-65 sm:w-[380px] sm:h-[320px] md:w-[460px] md:h-[380px] lg:w-[540px] lg:h-[440px] xl:w-[600px] xl:h-[480px]">
               
               {/* Decorative backgrounds */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary to-indigo-600 opacity-10 dark:opacity-20 blur-2xl transition-all duration-500 hover:opacity-30"></div>

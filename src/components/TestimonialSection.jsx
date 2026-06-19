@@ -26,6 +26,27 @@ I wish him all the best and hope he will bring laurels to self and all.`,
     gradientClass: "from-blue-500 to-indigo-500",
     lorUrl: "/Sanjay Reco.pdf" // Point to actual file in public/
   },
+  {
+    id: 1,
+    name: "Dr B Vinoth Kumar",
+    designationLines: [
+      "Professor and Head",
+      "Department of Information Technology",
+      "PSG College of Technology"
+    ],
+    institution: "",
+    content: `I have had the opportunity to work closely with Sanjay on Institutional initiatives. 
+
+Sanjay played a significant role in the development and deployment of the official websites for the PSG AI Consortium and AI Spectrum, contributing effectively to both the technical implementation and maintenance of these platforms. He has also been actively involved in hosting and managing multiple websites under institutional domains, showcasing his ability to handle responsibilities with diligence and attention to detail.
+
+Beyond his technical contributions, Sanjay was an active member of the organizing team for AI Spectrum 2025, where he worked collaboratively with faculty members, industry experts, and student volunteers to ensure the successful execution of the event. His commitment, adaptability, and willingness to take ownership of tasks make him a dependable team member and a promising software professional.
+
+I appreciate his enthusiasm for learning and his dedication towards delivering quality outcomes in every responsibility he undertakes.`,
+    avatarUrl: "/BVK.png", // Optional: place photo in public directory and link here (e.g. "/prof_sudha.jpg")
+    initials: "RA",
+    gradientClass: "from-blue-500 to-indigo-500",
+    lorUrl: "" // Point to actual file in public/
+  },
   
 ];
 
@@ -127,17 +148,19 @@ export const TestimonialSection = () => {
                 </div>
 
                 {/* View LOR Button */}
-                <div className="pt-2 md:pt-4">
-                  <a 
-                    href={testimonial.lorUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/20 text-primary text-xs font-bold hover:bg-primary/5 hover:border-primary transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs cursor-pointer bg-card/40"
-                  >
-                    <FileText className="h-4 w-4" />
-                    <span>View LOR</span>
-                  </a>
-                </div>
+                {testimonial.lorUrl && (
+                  <div className="pt-2 md:pt-4">
+                    <a 
+                      href={testimonial.lorUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/20 text-primary text-xs font-bold hover:bg-primary/5 hover:border-primary transition-all duration-300 hover:scale-105 active:scale-95 shadow-xs cursor-pointer bg-card/40"
+                    >
+                      <FileText className="h-4 w-4" />
+                      <span>View LOR</span>
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Recommendation Content (Right Column on Desktop, Bottom Column on Mobile) */}
