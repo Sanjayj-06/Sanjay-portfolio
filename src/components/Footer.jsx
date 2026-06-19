@@ -18,10 +18,6 @@ export const Footer = () => {
 
           {/* Copyright text */}
           <div className="text-center space-y-2">
-            <p className="text-muted-foreground text-sm flex items-center gap-2 justify-center">
-              Made with <Heart size={16} className="text-red-500 animate-pulse-subtle" fill="currentColor" /> by
-              <span className="font-semibold text-gradient">Sanjay Jayakumar</span>
-            </p>
             <p className="text-xs text-muted-foreground">
               &copy; {new Date().getFullYear()} All rights reserved.
             </p>
