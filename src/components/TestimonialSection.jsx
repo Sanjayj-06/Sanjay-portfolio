@@ -27,7 +27,7 @@ I wish him all the best and hope he will bring laurels to self and all.`,
     lorUrl: "/Sanjay Reco.pdf" // Point to actual file in public/
   },
   {
-    id: 1,
+    id: 2,
     name: "Dr B Vinoth Kumar",
     designationLines: [
       "Professor and Head",
@@ -44,6 +44,32 @@ Beyond his technical contributions, Sanjay was an active member of the organizin
 I appreciate his enthusiasm for learning and his dedication towards delivering quality outcomes in every responsibility he undertakes.`,
     avatarUrl: "/BVK.png", // Optional: place photo in public directory and link here (e.g. "/prof_sudha.jpg")
     initials: "RA",
+    gradientClass: "from-blue-500 to-indigo-500",
+    lorUrl: "" // Point to actual file in public/
+  },
+   {
+    id: 3,
+    name: "Dr N Gopika Rani",
+    designationLines: [
+      "Assistant Professor (SG)",
+      "Department of CSE",
+      "PSG College of Technology"
+    ],
+    institution: "",
+    content: `I am pleased to recommend Mr. Sanjay J, a highly motivated and accomplished fourth-year student who has consistently demonstrated excellence in academics, technical activities, and leadership throughout his academic journey.
+
+Sanjay has exhibited exceptional organizational and administrative skills by successfully coordinating numerous department-level, intra-college, and inter-college events. His ability to plan effectively, communicate clearly, manage teams efficiently, and ensure the smooth execution of activities has contributed significantly to the success of various academic, technical, and cultural programs.
+
+In addition to his event management responsibilities, Sanjay has actively participated in technical initiatives, workshops, seminars, and student development activities. His dedication, professionalism, problem-solving abilities, and commitment to continuous learning have distinguished him among his peers. He consistently demonstrates leadership, accountability, and a collaborative spirit in every task he undertakes.
+
+Sanjay's positive attitude, strong work ethic, and ability to inspire and coordinate teams have earned him the respect and appreciation of both faculty members and fellow students. He has proven himself to be a dependable and capable individual who can effectively handle responsibilities while maintaining high standards of performance.
+
+As a fourth-year student preparing to embark on the next stage of his academic and professional career, Sanjay has shown great potential to excel in roles that require leadership, administration, teamwork, and technical competence. I am confident that he will continue to achieve success and make valuable contributions wherever he chooses to pursue his future endeavors.
+
+I wish him every success in his future pursuits.
+`,
+    avatarUrl: "/ngr.png", // Optional: place photo in public directory and link here (e.g. "/prof_sudha.jpg")
+    initials: "",
     gradientClass: "from-blue-500 to-indigo-500",
     lorUrl: "" // Point to actual file in public/
   },
