@@ -27,6 +27,30 @@ I wish him all the best and hope he will bring laurels to self and all.`,
     lorUrl: "/Sanjay Reco.pdf" // Point to actual file in public/
   },
   {
+    id: 3,
+    name: "Dr G R Karpagam",
+    designationLines: [
+      "Professor and Head - CSE",
+      "Director - PSG AI Consortium",
+      "PSG College of Technology"
+    ],
+    institution: "",
+    content: `Sanjay  is a highly motivated  Computer Science and Engineering student who has consistently demonstrated a strong passion for Artificial Intelligence, Software Engineering, and research-driven innovation. Over the years, I have had the opportunity to closely observe his growth through various academic, research, and leadership initiatives within the department.
+
+Sanjay has actively contributed to multiple research and development projects under my guidance, exhibiting strong technical aptitude, problem-solving skills, and a willingness to take on challenging tasks. He was also involved in a collaborative project with INRIA Research Institute, France, where he contributed to the AI BILL initiative, demonstrating his ability to work in a International Forum.
+
+Beyond research, Sanjay has made significant contributions to the Institutions Initiatives. He played a key role in the development of the official websites for the PSG AI Consortium and AI Spectrum, showcasing his technical competence and commitment to supporting initiatives.
+
+As Joint Secretary of the Computer Science and Engineering Association (CSEA) for two consecutive years, Sanjay has been an active leader in organizing numerous technical events, workshops, and flagship programs. He lead  the National-level technical symposium Infinitum, and contributed tp the sucessful conduct of AI Spectrum 2025, and various departmental activities reflect his organizational capabilities, teamwork, and dedication to creating meaningful learning opportunities for students.
+
+Sanjay has also demonstrated excellent communication and leadership skills through his involvement in high-profile events, including serving as a moderator for a panel discussion during Kriya 2026.
+`,
+    avatarUrl: "/grk.jpg", // Optional: place photo in public directory and link here (e.g. "/prof_sudha.jpg")
+    initials: "",
+    gradientClass: "from-blue-500 to-indigo-500",
+    lorUrl: "" // Point to actual file in public/
+  },
+  {
     id: 2,
     name: "Dr B Vinoth Kumar",
     designationLines: [
